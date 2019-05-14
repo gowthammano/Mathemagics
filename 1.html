@@ -5,18 +5,22 @@
     <meta charset="utf-8" />
     <title>Save The Superhero</title>
     <script>    
-        var wolf = -3;
-        var man = 0;
+        var wolf = -4;
+        var man = 10;
         function setup() {
             document.getElementById("n1").innerText = getRandom(1);
             document.getElementById("sgn").innerText = "x";
             document.getElementById("n2").innerText = getRandom(1);
             document.getElementById("Text3").value = "";
-            document.getElementById("pos" + man).innerHTML = "<img src=\"http://cliparts.co/cliparts/8cE/arb/8cEarbkca.png\" height=\"30\" width=\"20\" />";
-            document.getElementById("pos" + wolf).innerHTML = "<img src=\"http://cliparts.co/cliparts/kc8/nxj/kc8nxjXqi.gif\" height=\"30\" width=\"20\" />";
+            document.getElementById("pos" + man).innerHTML = "<img src=\"./img/2.png\" height=\"30\"  />";
+            document.getElementById("pos" + wolf).innerHTML = "<img src=\"./img/3.gif\" height=\"30\" />";
         }
         function getRandom(dig) {
-            return Math.floor((Math.random() * Math.pow(10,dig) ) + 1);
+            var ret=1;
+            while (ret<2) {
+                ret=Math.floor((Math.random() * Math.pow(10,dig) ) + 1);
+            }
+            return ret;
         }
 
         function myfunction() {
@@ -24,18 +28,17 @@
             document.getElementById("pos" + man).innerHTML = "";
             if (document.getElementById("n1").innerText * document.getElementById("n2").innerText != document.getElementById("Text3").value) {
                 
-                wolf += 2;
-                man += 1;
+                wolf += 1;
+                man -= 1;
             }
             else {
-                wolf += 1;
-                man += 1;
+                man -= 1;
                 
             }
-            if (wolf>=man) {
+            if (wolf==0) {
                 alert("Game Over");
             }
-            if (man==10) {
+            if (man==0) {
                 alert("You Win!!!");
             }
             setup();
@@ -47,8 +50,10 @@
         }
     </script>
     <style type="text/css">
-        td{
-            width: 26px;
+        td {
+            align-items: center;
+            width: 20px;
+            height: 40px;
         }
     </style>
 </head>
@@ -57,32 +62,42 @@
     <br />
     <br />
     <br />
+    <div><h1>Save Simba</h1><h4>
+    Simba is lost in a maze. Help  Mufasa reach Simba before the Hyenas.
+    Remember, the Hyenas are closer but they move only if you get the answer wrong.
+</h4></div>
     <div style="font-size:48px">
     <span id="n1">23</span><span id="sgn">x</span><span id="n2">5</span>=<input id="Text3" type="text" style="height:50px;font-size:48px;width:150px"/>
     <input id="Button1" type="button" value="Submit" onclick="myfunction();"  style="height:50px"/></div>
     <div>
 
-        <table style="width: 100%;" border="1">
+        <table style="width: 30%;" border="1">
             <tr>
-                <td id="pos-3" class="auto-style1">
-                    <img src="http://www.321coloringpages.com/images/wolf-coloring-pages/wolf-coloring-pages-2.jpg" height="20" width="20" alt="Alternate Text" /></td>
-                <td id="pos-2"></td>
-                <td id="pos-1">
-                    </td>
-                <td id="pos0"><img src="https://www.cool2bkids.com/wp-content/uploads/2017/04/Gingerbread-Man-Coloring-Pages.jpg" height="20" width="20" alt="Alternate Text" /></td>
-                <td id="pos1"></td>
-                <td id="pos2"></td>
-                <td id="pos3"></td>
-                <td id="pos4"></td>
-                <td id="pos5"></td>
-                <td id="pos6"></td>
-                <td id="pos7"></td>
-                <td id="pos8"></td>
-                <td id="pos9"></td>
-                <td id="pos10">                    <img src="https://i.pinimg.com/originals/4b/56/06/4b56062816a1703e5e8df407bd87ffd5.png" height="30" width="40" alt="Alternate Text" /></td>
-
+                <td id="pos-3" >&gt;</td>
+                <td id="pos-2">V</td>
+                <td id="pos3">V</td>
+                <td id="pos4">&lt;</td>
             </tr>
             <tr>
+                <td id="pos-4">^</td>
+                <td id="pos-1">V</td>
+                <td id="pos2">V</td>
+                <td id="pos5">^</td>
+            </tr>
+            <tr>
+                <td id="pos-5">^</td>
+                <td id="pos0"><img src="./img/1.jpg" height="30" /></td>
+                <td id="pos1">&lt;</td>
+                <td id="pos6">^</td>
+            </tr>
+            <tr>
+                <td id="pos10">  </td>
+                <td id="pos9">&gt;</td>
+                <td id="pos8">&gt;</td>
+                <td id="pos7">^</td>
+
+            </tr>
+            <!--<tr>
                 <td class="auto-style1"></td>
                 <td></td>
                 <td></td>
@@ -97,7 +112,7 @@
                 <td>8</td>
                 <td>9</td>
                 <td>10</td>
-            </tr>            
+            </tr>-->
         </table>
     </div>
     
