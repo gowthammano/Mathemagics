@@ -4,41 +4,67 @@
 <head>
     <meta charset="utf-8" />
     <title>Save The Superhero</title>
-    <script>    
+    <script>
         var wolf = -4;
         var man = 10;
+        var n1Lvl = 1;
+        var n2Lvl = 1;
+
         function setup() {
-            document.getElementById("n1").innerText = getRandom(1);
+            document.getElementById("n1").innerText = getRandom(n1Lvl);
             document.getElementById("sgn").innerText = "x";
-            document.getElementById("n2").innerText = getRandom(1);
+            document.getElementById("n2").innerText = getRandom(n2Lvl);
             document.getElementById("Text3").value = "";
             document.getElementById("pos" + man).innerHTML = "<img src=\"./img/2.png\" height=\"30\"  />";
             document.getElementById("pos" + wolf).innerHTML = "<img src=\"./img/3.gif\" height=\"30\" />";
         }
+        function lvlCalc() {
+            switch (document.getElementById("lvl").value) {
+
+                case "0":
+                    n1Lvl = 1;
+                    n2Lvl = 1;
+                    break;
+                case "1":
+                    n1Lvl = 2;
+                    n2Lvl = 1;
+                    break;
+                case "2":
+                    n1Lvl = 2;
+                    n2Lvl = 2;
+                    break;
+                default:
+                    n1Lvl = 1;
+                    n2Lvl = 1;
+            }
+            setup();
+
+        }
         function getRandom(dig) {
-            var ret=1;
-            while (ret<2) {
-                ret=Math.floor((Math.random() * Math.pow(10,dig) ) + 1);
+            var ret = 1;
+            while (ret < 2) {
+                ret = Math.floor((Math.random() * Math.pow(10, dig)) + 1);
             }
             return ret;
         }
 
-        function myfunction() {
+        function chkAnswer() {
             document.getElementById("pos" + wolf).innerHTML = "";
             document.getElementById("pos" + man).innerHTML = "";
             if (document.getElementById("n1").innerText * document.getElementById("n2").innerText != document.getElementById("Text3").value) {
-                
+
                 wolf += 1;
                 man -= 1;
             }
             else {
                 man -= 1;
-                
+
             }
-            if (wolf==0) {
+            document.getElementById("ans").innerText = document.getElementById("n1").innerText + "x" + document.getElementById("n2").innerText + "=" + document.getElementById("n1").innerText * document.getElementById("n2").innerText;
+            if (wolf == 0) {
                 alert("Game Over");
             }
-            if (man==0) {
+            if (man == 0) {
                 alert("You Win!!!");
             }
             setup();
@@ -48,7 +74,8 @@
         function d12() {
 
         }
-    </script>
+
+/**/</script>
     <style type="text/css">
         td {
             align-items: center;
@@ -60,20 +87,27 @@
 
 <body onload="setup();">
     <br />
-    <br />
-    <br />
-    <div><h1>Save Simba</h1><h4>
-    Simba is lost in a maze. Help  Mufasa reach Simba before the Hyenas.
-    Remember, the Hyenas are closer but they move only if you get the answer wrong.
-</h4></div>
+    <div>
+        <h1>Save Simba</h1><h4>
+            Simba is lost in a maze. Help  Mufasa reach Simba before the Hyenas.
+            Remember, the Hyenas are closer but they move only if you get the answer wrong.
+        </h4>
+    </div><div>
+    Level <select id="lvl" onchange="lvlCalc();">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+</div>
     <div style="font-size:48px">
-    <span id="n1">23</span><span id="sgn">x</span><span id="n2">5</span>=<input id="Text3" type="text" style="height:50px;font-size:48px;width:150px"/>
-    <input id="Button1" type="button" value="Submit" onclick="myfunction();"  style="height:50px"/></div>
+        <span id="n1">23</span><span id="sgn">x</span><span id="n2">5</span>=<input id="Text3" type="text" style="height:50px;font-size:48px;width:150px" />
+        <input id="Button1" type="button" value="Submit" onclick="chkAnswer();" style="height:50px" /><span id="ans"></span>
+    </div>
     <div>
 
         <table style="width: 30%;" border="1">
             <tr>
-                <td id="pos-3" >&gt;</td>
+                <td id="pos-3">&gt;</td>
                 <td id="pos-2">V</td>
                 <td id="pos3">V</td>
                 <td id="pos4">&lt;</td>
@@ -97,22 +131,6 @@
                 <td id="pos7">^</td>
 
             </tr>
-            <!--<tr>
-                <td class="auto-style1"></td>
-                <td></td>
-                <td></td>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-            </tr>-->
         </table>
     </div>
     
