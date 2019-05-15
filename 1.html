@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Save The Superhero</title>
     <script>
-        var wolf = -4;
+        var wolf = -3;
         var man = 10;
         var n1Lvl = 1;
         var n2Lvl = 1;
@@ -47,17 +47,22 @@
             }
             return ret;
         }
-
+        function stpCalc() {
+            document.getElementById("pos" + wolf).innerHTML = "";
+            wolf = parseInt(document.getElementById("stp").value);
+            setup();
+        }
         function chkAnswer() {
             document.getElementById("pos" + wolf).innerHTML = "";
             document.getElementById("pos" + man).innerHTML = "";
             if (document.getElementById("n1").innerText * document.getElementById("n2").innerText != document.getElementById("Text3").value) {
-
+                document.getElementById("ans").className = "wrongAns";
                 wolf += 1;
                 man -= 1;
             }
             else {
                 man -= 1;
+                document.getElementById("ans").className = "correctAns";
 
             }
             document.getElementById("ans").innerText = document.getElementById("n1").innerText + "x" + document.getElementById("n2").innerText + "=" + document.getElementById("n1").innerText * document.getElementById("n2").innerText;
@@ -79,8 +84,26 @@
     <style type="text/css">
         td {
             align-items: center;
+            
+        }
+
+        .hynPath {
             width: 20px;
             height: 40px;
+            background-color: mediumpurple;
+        }
+        .lionPath {
+            width: 20px;
+            height: 40px;
+            background-color: orange;
+        }
+
+        .correctAns {
+            color: forestgreen;
+        }
+
+        .wrongAns {
+            color: red;
         }
     </style>
 </head>
@@ -93,46 +116,61 @@
             Remember, the Hyenas are closer but they move only if you get the answer wrong.
         </h4>
     </div><div>
-    Level <select id="lvl" onchange="lvlCalc();">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select>
-</div>
+        Level <select id="lvl" onchange="lvlCalc();">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>.
+        The Hyenas start <select id="stp" onchange="stpCalc();">
+            <option value="-1">1</option>
+            <option value="-2">2</option>
+            <option value="-3" selected>3</option>
+            <option value="-4">4</option>
+            <option value="-5">5</option>
+        </select>step(s) back.
+    </div>
+    <br />
+
     <div style="font-size:48px">
         <span id="n1">23</span><span id="sgn">x</span><span id="n2">5</span>=<input id="Text3" type="text" style="height:50px;font-size:48px;width:150px" />
-        <input id="Button1" type="button" value="Submit" onclick="chkAnswer();" style="height:50px" /><span id="ans"></span>
+        <input id="Button1" type="button" value="Submit" onclick="chkAnswer();" style="height:50px" /><span id="ans" style="font-size:24px"></span>
     </div>
     <div>
 
-        <table style="width: 30%;" border="1">
+        <table style="width: 30%;" border="0">
             <tr>
-                <td id="pos-3">&gt;</td>
-                <td id="pos-2">V</td>
-                <td id="pos3">V</td>
-                <td id="pos4">&lt;</td>
+                <td id="pos-3" class="hynPath"></td>
+                <td id="pos-2" class="hynPath" colspan="2"></td>
+                <td id="pos3" class="lionPath"></td>
+                <td id="pos4" class="lionPath" colspan="2"></td>
             </tr>
             <tr>
-                <td id="pos-4">^</td>
-                <td id="pos-1">V</td>
-                <td id="pos2">V</td>
-                <td id="pos5">^</td>
+                <td id="pos-4" class="hynPath"></td>
+                <td rowspan="2" style="border-bottom:none">&nbsp;</td>
+                <td id="pos-1" class="hynPath"></td>
+                <td id="pos2" class="lionPath"></td>
+                <td rowspan="2" style="border-bottom:none"></td>
+                <td id="pos5" class="lionPath"></td>
             </tr>
             <tr>
-                <td id="pos-5">^</td>
+                <td id="pos-5" class="hynPath"></td>
                 <td id="pos0"><img src="./img/1.jpg" height="30" /></td>
-                <td id="pos1">&lt;</td>
-                <td id="pos6">^</td>
+                <td id="pos1" class="lionPath"></td>
+                <td id="pos6" class="lionPath"></td>
             </tr>
             <tr>
-                <td id="pos10">  </td>
-                <td id="pos9">&gt;</td>
-                <td id="pos8">&gt;</td>
-                <td id="pos7">^</td>
+                <td colspan="5" style="border-top:none">&nbsp;</td>
+                <td id="pos7" rowspan="2" class="lionPath" style="border-top:none">&nbsp;</td>
+
+            </tr>
+            <tr>
+                <td id="pos10" >  </td>
+                <td id="pos9" class="lionPath" colspan="3">&nbsp;</td>
+                <td id="pos8" class="lionPath" colspan="2"></td>
 
             </tr>
         </table>
     </div>
-    
+
 </body>
 </html>
