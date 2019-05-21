@@ -33,4 +33,26 @@
         height: 90%;
     }
 }
-
+.timer{
+    border:1px;
+    background-color:lightgray;
+    color:crimson;
+    padding:2%
+}
+.column2 {
+    display: inline-block;
+}
+.column{
+    display:inline-block;
+    float:left;
+    width:10%;
+    padding-top:20%;
+}
+.road {
+    border-left: dashed;
+    border-left-color: white;
+    border-right: dashed;
+    border-right-color: white;
+    width: 5%;
+    background-color: darkgray;
+}
