@@ -31,6 +31,10 @@ function lvlCalc() {
             n2Lvl = 1;
             break;
         case "2":
+            n1Lvl = 3;
+            n2Lvl = 1;
+            break;
+        case "3":
             n1Lvl = 2;
             n2Lvl = 2;
             break;
