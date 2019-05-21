@@ -3,115 +3,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Save Simba</title>
-    <script>
-        var wolf = -3;
-        var man = 10;
-        var n1Lvl = 1;
-        var n2Lvl = 1;
-        function start() {
-            document.getElementById("submit").disabled = false;
-            document.getElementById("stp").disabled = true;
-            document.getElementById("lvl").disabled = true;
-            setup();
-
-        }
-        function setup() {
-            document.getElementById("n1").innerText = getRandom(n1Lvl);
-            document.getElementById("sgn").innerText = "x";
-            document.getElementById("n2").innerText = getRandom(n2Lvl);
-            document.getElementById("Text3").value = "";
-            document.getElementById("pos" + man).innerHTML = "<img src=\"./img/2.png\" height=\"30\"  />";
-            document.getElementById("pos" + wolf).innerHTML = "<img src=\"./img/3.gif\" height=\"30\" />";
-        }
-        function lvlCalc() {
-            switch (document.getElementById("lvl").value) {
-
-                case "0":
-                    n1Lvl = 1;
-                    n2Lvl = 1;
-                    break;
-                case "1":
-                    n1Lvl = 2;
-                    n2Lvl = 1;
-                    break;
-                case "2":
-                    n1Lvl = 2;
-                    n2Lvl = 2;
-                    break;
-                default:
-                    n1Lvl = 1;
-                    n2Lvl = 1;
-            }
-            setup();
-
-        }
-        function getRandom(dig) {
-            var ret = 1;
-            while (ret < 2) {
-                ret = Math.floor((Math.random() * Math.pow(10, dig)) + 1);
-            }
-            return ret;
-        }
-        function stpCalc() {
-            document.getElementById("pos" + wolf).innerHTML = "";
-            wolf = parseInt(document.getElementById("stp").value);
-            setup();
-        }
-        function chkAnswer() {
-            document.getElementById("pos" + wolf).innerHTML = "";
-            document.getElementById("pos" + man).innerHTML = "";
-            if (document.getElementById("n1").innerText * document.getElementById("n2").innerText != document.getElementById("Text3").value) {
-                document.getElementById("ans").className = "wrongAns";
-                wolf += 1;
-                man -= 1;
-            }
-            else {
-                man -= 1;
-                document.getElementById("ans").className = "correctAns";
-
-            }
-            document.getElementById("ans").innerText = document.getElementById("n1").innerText + "x" + document.getElementById("n2").innerText + "=" + document.getElementById("n1").innerText * document.getElementById("n2").innerText;
-            if (wolf == 0) {
-                alert("Game Over");
-            }
-            if (man == 0) {
-                alert("You Win!!!");
-            }
-            setup();
-            document.getElementById("Text3").focus();
-
-        }
-        function d12() {
-
-        }
-
-/**/</script>
-    <style type="text/css">
-        td {
-            align-items: center;
-        }
-
-        .hynPath {
-            width: 20px;
-            height: 40px;
-            background-color: mediumpurple;
-        }
-
-        .lionPath {
-            width: 20px;
-            height: 40px;
-            background-color: orange;
-        }
-
-        .correctAns {
-            color: forestgreen;
-        }
-
-        .wrongAns {
-            color: red;
-        }
-    </style>
+    <title>Save Simba</title><meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="./src/Script1.js" ></script>
+    <link type="text/css" href="./style/Styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -149,26 +43,28 @@
     </div>
     <br />
 
-    <div style="font-size:48px">
-        <span id="n1"></span><span id="sgn">x</span><span id="n2"></span>=<input id="Text3" type="text" style="height:50px;font-size:48px;width:150px" />
-        <input id="submit" type="button" value="Submit" onclick="chkAnswer();" style="height:50px" disabled /><span id="ans" style="font-size:24px"></span>
+    <div style="        font-size: 48px">
+        <span id="n1"></span><span id="sgn">x</span><span id="n2"></span>=<input id="Text3" type="text" style="        height: 50px;
+        font-size: 48px;
+        width: 150px" />
+        <input id="submit" type="button" value="Submit" onclick="chkAnswer();" style="        height: 50px" disabled /><span id="ans" style="        font-size: 24px"></span>
     </div>
-    <div>
+    <div class="table">
 
-        <table style="width: 30%;" border="0">
+        <table border="0">
             <tr>
-                <td id="pos-3" class="hynPath"></td>
-                <td id="pos-2" class="hynPath" colspan="2"></td>
-                <td id="pos3" class="lionPath"></td>
-                <td id="pos4" class="lionPath" colspan="2"></td>
+                <td id="pos-3" class="hynPath">&nbsp;</td>
+                <td id="pos-2" class="hynPath" colspan="2">&nbsp;</td>
+                <td id="pos3" class="lionPath">&nbsp;</td>
+                <td id="pos4" class="lionPath" colspan="2">&nbsp;</td>
             </tr>
             <tr>
-                <td id="pos-4" class="hynPath"></td>
-                <td rowspan="2" style="border-bottom:none">&nbsp;</td>
-                <td id="pos-1" class="hynPath"></td>
-                <td id="pos2" class="lionPath"></td>
-                <td rowspan="2" style="border-bottom:none"></td>
-                <td id="pos5" class="lionPath"></td>
+                <td id="pos-4" class="hynPath">&nbsp;</td>
+                <td rowspan="2" style="        border-bottom: none">&nbsp;</td>
+                <td id="pos-1" class="hynPath">&nbsp;</td>
+                <td id="pos2" class="lionPath">&nbsp;</td>
+                <td rowspan="2" style="        border-bottom: none">&nbsp;</td>
+                <td id="pos5" class="lionPath">&nbsp;</td>
             </tr>
             <tr>
                 <td id="pos-5" class="hynPath"></td>
@@ -177,8 +73,8 @@
                 <td id="pos6" class="lionPath"></td>
             </tr>
             <tr>
-                <td colspan="5" style="border-top:none">&nbsp;</td>
-                <td id="pos7" rowspan="2" class="lionPath" style="border-top:none">&nbsp;</td>
+                <td colspan="5" style="        border-top: none">&nbsp;</td>
+                <td id="pos7" rowspan="2" class="lionPath" style="        border-top: none">&nbsp;</td>
 
             </tr>
             <tr>

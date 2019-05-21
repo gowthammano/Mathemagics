@@ -1,0 +1,36 @@
+﻿td {
+    align-items: center;
+}
+
+.hynPath {
+    width: 15%;
+    padding-top: 15%;
+    background-color: mediumpurple;
+}
+
+.lionPath {
+    width: 15%;
+    padding-top: 15%;
+    background-color: orange;
+}
+
+.correctAns {
+    color: forestgreen;
+}
+
+.wrongAns {
+    color: red;
+}
+
+.table {
+    width: 80%;
+    height: 90%;
+}
+
+@media only screen and (min-width: 400px) {
+    .table {
+        width: 50%;
+        height: 90%;
+    }
+}
+
