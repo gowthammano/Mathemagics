@@ -28,21 +28,21 @@ function lvlCalc() {
         case "0":
             n1Lvl = 1;
             n2Lvl = 1;
-            document.getElementById("sec").value = 60;
+            document.getElementById("sec").value = 30;
             break;
         case "1":
             n1Lvl = 2;
             n2Lvl = 1;
-            document.getElementById("sec").value = 90;
+            document.getElementById("sec").value = 60;
             break;
         case "2":
             n1Lvl = 3;
-            document.getElementById("sec").value = 120;
+            document.getElementById("sec").value = 90;
             n2Lvl = 1;
             break;
         case "3":
             n1Lvl = 2;
-            document.getElementById("sec").value = 150;
+            document.getElementById("sec").value = 120;
             n2Lvl = 2;
             break;
         default:
